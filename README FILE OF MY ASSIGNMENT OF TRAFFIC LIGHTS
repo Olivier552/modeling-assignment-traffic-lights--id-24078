@@ -1,0 +1,27 @@
+This is about my work on Gishushu traffic lights state diagram
+
+[*] (Initial State):
+The [*] symbol represents the initial state. The state machine starts here. In the case of traffic lights, the initial state is typically Green, which is the state when the system is first powered on or reset.
+  State Actions (Behavior):
+Each state might perform some specific actions or operations:
+•	GreenState: Vehicles are allowed to proceed through the intersection.
+•	YellowState: The system signals caution, telling drivers to slow down and prepare to stop.
+•	RedState: The system ensures that all vehicles stop at the intersection.
+•	BlinkingRedState: If this special state occurs, the traffic light flashes red, signaling a malfunction or manual override.
+
+Explanation of Transitions:
+1.	Green → Yellow: After the predefined duration of the Green light expires, the system moves to the Yellow light. The Timeout event causes this transition.
+2.	Yellow → Red: Similarly, after the Yellow light has been on for its set duration, the light transitions to Red. This ensures vehicles are given enough time to stop safely.
+3.	Red → Green: After the Red light's set duration has passed, the system transitions back to Green, allowing traffic to proceed again.
+4.	Green → BlinkingRed: If a malfunction or manual override occurs during the Green light, the system transitions to the BlinkingRed state. This might be the case when there is a manual override or emergency situation requiring immediate attention, such as flashing red lights indicating a hazardous condition.
+5.	Yellow → BlinkingRed: Similarly, if a malfunction occurs during the Yellow light, the system transitions to BlinkingRed.
+6.	Red → BlinkingRed: If a malfunction happens during the Red light (for instance, if the traffic light is not functioning properly or is being manually overridden), the system will switch to BlinkingRed.
+
+Practical Example:
+Imagine the traffic light operates with the following timeline:
+1.	The Green light is on for 60 seconds.
+2.	After 60 seconds, the light transitions to Yellow for 5 seconds.
+3.	The Yellow light then transitions to Red for 60 seconds.
+4.	After 60 seconds, the light transitions back to Green.
+However, if during any of these states, there is a malfunction (e.g., an electrical issue or system override), the light could enter the BlinkingRed state. In this state, vehicles would treat the intersection like a stop sign and proceed with caution.
+
